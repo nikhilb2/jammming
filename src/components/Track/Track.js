@@ -1,6 +1,7 @@
+import React from 'react'
 class Track extends React.Component {
   renderAction() {
-    
+
   }
   render() {
     return (<div class="Track">

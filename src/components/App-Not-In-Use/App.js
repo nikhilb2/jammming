@@ -1,4 +1,4 @@
-import Playlist from './Playlist'
+import Playlist from './Playlist/Playlist.js'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 class App extends React.Component {

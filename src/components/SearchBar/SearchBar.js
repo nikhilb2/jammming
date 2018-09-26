@@ -1,3 +1,4 @@
+import React from 'react'
 export class SearchBar extends React.component {
   render() {
     return (<div className="SearchBar">

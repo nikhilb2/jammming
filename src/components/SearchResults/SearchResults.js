@@ -1,4 +1,5 @@
-import TrackList from './TrackList'
+import React from 'react'
+import TrackList from './components/TrackList/TrackList.js'
 class SearchResults extends React.Component {
   render() {
     return (<div className="SearchResults">
@@ -7,3 +8,4 @@ class SearchResults extends React.Component {
 </div>)
   }
 }
+export default SearchResults
