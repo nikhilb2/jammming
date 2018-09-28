@@ -7,17 +7,17 @@ class App extends React.Component {
     super(props);
     this.state={
       searchResults:{
-      name:'',
-      artist:'',
-      album:'',
-      id:''
+        name:[],
+        artist:[],
+        album:[],
+        id:[]
     },
     playlistName:'',
     playlistTracks:{
-      name:'Random Name',
-      artist:'Random artist',
-      album:'Randm Album',
-      id:'Random iD'
+      name:[],
+      artist:[],
+      album:[],
+      id:[]
     }
   }
   this.addTrack=this.addTrack.bind(this);
