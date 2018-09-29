@@ -2,23 +2,24 @@ import React from 'react'
 import Playlist from './components/Playlist/Playlist.js'
 import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
+import "./App.css"
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      searchResults:{
-        name:[],
-        artist:[],
-        album:[],
-        id:[]
-    },
+      searchResults:[{
+        name:"",
+        artist:"",
+        album:"",
+        id:""
+    }],
     playlistName:'',
-    playlistTracks:{
-      name:[],
-      artist:[],
-      album:[],
-      id:[]
-    }
+    playlistTracks:[{
+      name:"",
+      artist:"",
+      album:"",
+      id:""
+    }]
   }
   this.addTrack=this.addTrack.bind(this);
   this.removeTrack=this.removeTrack.bind(this);
