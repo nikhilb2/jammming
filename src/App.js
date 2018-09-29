@@ -2,6 +2,7 @@ import React from 'react'
 import Playlist from './components/Playlist/Playlist.js'
 import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
+import {Spotify} from './util/Spotify.js'
 import "./App.css"
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +30,9 @@ class App extends React.Component {
 }
   savePlaylist() {
 let trackURIs = this.state.playlistTracks.map(track => track.uri);
+Spotify.savePlaylist(this.state.playlistName,trackURIs).then(()=>{
+  this.setState({playlistTracks:[],playlistName:'New Playlist'})
+})
   }
   addTrack(track) {
     if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
@@ -48,7 +52,10 @@ tracks=tracks.filter(currentTrack=>currentTrack.id !==track.id);
 this.setState({playlistTracks:tracks})
 }
 search(term) {
-  console.log(term)
+  Spotify.search(term).then(results=> {
+    this.setState({searchResults:results})
+  })
+  console.log('Search')
 }
 
     render() {
