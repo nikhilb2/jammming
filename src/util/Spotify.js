@@ -7,12 +7,12 @@ export const Spotify = {
     if (token) {
       return token
     }else{
-      let accessToken =window.location.href.match(/access_token=([^&]*)/);
-      let tokenExpiry = window.location.href.match(/expires_in=([^&]*)/);
+      const accessToken =window.location.href.match(/access_token=([^&]*)/);
+      const tokenExpiry = window.location.href.match(/expires_in=([^&]*)/);
       if (accessToken && tokenExpiry) {
-   accessToken = token[1];
-   tokenExpiry = expiry[1];
-   window.setTimeout(() => accessToken = '', tokenExpiry * 1000);
+   token = accessToken[1];
+   expiry = tokenExpiry[1];
+   window.setTimeout(() => token = '', expiry * 1000);
    window.history.pushState(`Access Token`, null, '/');
    return token;
     }else {
@@ -21,14 +21,16 @@ export const Spotify = {
     }
   },
   async search(term) {
-    const accessToken=this.getAccessToken()
+    const accessToken=Spotify.getAccessToken()
+    console.log(accessToken)
       try {
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`,
         {headers:{Authorization:`Bearer ${accessToken}`}});
+        console.log(response);
         if (response.ok) {
-          const jsonResponse = await response.json();
-          console.log(jsonResponse)
-          if (jsonResponse.tracks) {
+            const jsonResponse = await response.json();
+            console.log(jsonResponse);
+            if (jsonResponse.tracks) {
             return jsonResponse.tracks.items.map(track=> ({
             id:track.id,
             name:track.name,
