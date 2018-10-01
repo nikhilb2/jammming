@@ -14,20 +14,22 @@ class Track extends React.Component {
     this.props.onRemove(this.props.track)
   }
   renderAction() {
-    if (this.prop.isRemoval) {
-      return <a className='Track-action' onClick={this.removeTrack}>-</a>;
-    }else {
-      return <a className='Track-action' onClick={this.addTrack}>-</a>;
+    if (this.props.isRemoval && this.props.track.name) {
+      return <div className="Track"><div className="Track-information">
+        <h3>{this.props.track.name}</h3>
+        <p>{this.props.track.artist} | {this.props.track.album}</p>
+      </div><a className='Track-action' onClick={this.removeTrack}>-</a></div>;
+    }else if (this.props.isRemoval === false && this.props.track.name) {
+      return <div className="Track"><div className="Track-information">
+        <h3>{this.props.track.name}</h3>
+        <p>{this.props.track.artist} | {this.props.track.album}</p>
+      </div><a className='Track-action' onClick={this.addTrack}>+</a></div>;
+    } else {
+      return ""
     }
   }
   render() {
-    return (<div className="Track">
-  <div className="Track-information">
-    <h3>{this.props.track.name}</h3>
-    <p>{this.props.track.artist} | {this.props.track.album}</p>
-  </div>
-  {this.renderAction}
-</div>)
+    return (<div>{this.renderAction()}</div>)
   }
 }
 export default Track

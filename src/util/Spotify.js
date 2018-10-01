@@ -1,7 +1,7 @@
 let token;
 let expiry;
 const clientID='1ff455d4ee9842c0bed1a658bb501acf'
-const redirectURI = 'http://localhost:3000'
+const redirectURI = 'http://jammmed.surge.sh'
 export const Spotify = {
   getAccessToken() {
     if (token) {
@@ -35,7 +35,7 @@ export const Spotify = {
             id:track.id,
             album: track.album.name,
             name:track.name,
-            artists:track.artist[0].name,
+            artist:track.artists[0].name,
             uri:track.uri
           }))
         }else {
