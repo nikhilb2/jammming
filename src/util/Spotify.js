@@ -35,7 +35,7 @@ export const Spotify = {
             id:track.id,
             album: track.album.name,
             name:track.name,
-            artist:track.artist[0].name,
+            artists:track.artist[0].name,
             uri:track.uri
           }))
         }else {
