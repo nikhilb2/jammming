@@ -14,7 +14,7 @@ export const Spotify = {
    expiry = tokenExpiry[1];
    window.setTimeout(() => token = '', expiry * 1000);
    window.history.pushState(`Access Token`, null, '/');
-   return token;
+      return token;
     }else {
         window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`);
       }
@@ -36,7 +36,8 @@ export const Spotify = {
             album: track.album.name,
             name:track.name,
             artist:track.artists[0].name,
-            uri:track.uri
+            uri:track.uri,
+            previewLink:track.preview_url
           }))
         }else {
           return []

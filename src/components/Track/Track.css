@@ -15,6 +15,10 @@
   color: rgba(265, 265, 265, .5);
 }
 
+.Track-action2  {
+  text-decoration:none;
+}
+
 .Track-information {
   flex-grow: 1;
   display: flex;
